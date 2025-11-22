@@ -1,3 +1,7 @@
+import os
+
+if not os.path.exists("data/hotel.db"):
+    import seed_db
 import streamlit as st
 from src import audio_handler, bot_logic
 
