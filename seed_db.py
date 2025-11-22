@@ -1,4 +1,9 @@
 import sqlite3
+import os
+
+
+if not os.path.exists("data"):
+    os.makedirs("data")
 
 conn = sqlite3.connect("data/hotel.db")
 cur = conn.cursor()
