@@ -77,28 +77,3 @@ A voice-enabled AI receptionist that can check room availability, answer hotel p
     streamlit run app.py
 
 ---
-
-### Step 4: Prepare for "How does it work?" Questions
-If this is for an interview, here is the "Architecture Explanation" you should memorize:
-
-> "I built a modular AI agent. When I speak, **Streamlit** captures the audio and passes it to a local **Whisper model** running on my CPU to transcribe it to text.
->
-> That text is sent to **Llama 3.1 (via Groq)**. I gave the LLM 'tools' (functions) that let it query the **SQLite database** directly. It decides *if* it needs to check availability or book a room, runs the SQL query, and generates a natural language response based on the data.
->
-> Finally, **gTTS** converts that text back to audio for the response."
-
----
-
-### Step 5: Clean Up for Submission
-**Do not zip the `venv` folder!** It is huge and contains thousands of unnecessary files.
-
-1.  Delete the `__pycache__` folders if you see them.
-2.  Select only:
-    * `app.py`
-    * `seed_db.py`
-    * `requirements.txt`
-    * `README.md`
-    * The `src` folder
-    * The `data` folder
-3.  Right-click -> **Send to** -> **Compressed (zipped) folder**.
-4.  Name it `Simplotel_Assignment_Krunal.zip`.
