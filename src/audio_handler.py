@@ -3,7 +3,11 @@ import whisper
 from gtts import gTTS
 import base64
 import os
+import sys
 
+# Only add Windows path if running on Windows
+if sys.platform == "win32":
+    os.environ["PATH"] += os.pathsep + r"C:\ffmpeg\bin"
 # Load the base model (small enough for CPU, decent accuracy)
 # This downloads about ~140MB the first time you run it.
 model = whisper.load_model("base")
