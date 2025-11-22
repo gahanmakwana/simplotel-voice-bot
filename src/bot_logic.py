@@ -1,14 +1,20 @@
 import os
+import streamlit as st
 from openai import OpenAI
 from src import database
 from dotenv import load_dotenv
 
 load_dotenv()
-
+api_key = os.environ.get("GROQ_API_KEY")
+if not api_key:
+    try:
+        api_key = st.secrets["GROQ_API_KEY"]
+    except:
+        pass
 # Initialize Client with Groq URL
 client = OpenAI(
     base_url="https://api.groq.com/openai/v1",
-    api_key=os.environ.get("GROQ_API_KEY")
+    api_key=api_key
 )
 
 def check_availability(check_in, check_out, room_type):
